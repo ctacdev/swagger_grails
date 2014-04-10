@@ -1,4 +1,4 @@
-package com.sgates.swagger
+package com.ctacorp.swagger
 
 class SwaggerController {
 

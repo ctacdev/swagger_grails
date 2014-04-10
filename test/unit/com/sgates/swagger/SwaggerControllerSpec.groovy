@@ -1,5 +1,6 @@
 package com.sgates.swagger
 
+import com.ctacorp.swagger.SwaggerController
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

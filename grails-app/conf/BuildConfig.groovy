@@ -37,6 +37,9 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         // runtime 'mysql:mysql-connector-java:5.1.27'
+
+        //Swagger annotations
+        runtime 'com.ctacorp:grails_swagger_annotations:0.7'
     }
 
     plugins {
