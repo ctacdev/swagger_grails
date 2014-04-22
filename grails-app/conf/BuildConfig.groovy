@@ -2,6 +2,9 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 
+def home = System.getProperty('user.home')
+def config = new ConfigSlurper(grailsSettings.grailsEnv).parse(new File("$home/syndBuildConfig.groovy").toURI().toURL())
+
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
     //  compile: [maxMemory: 256, minMemory: 64, debug: false, maxPerm: 256, daemon:true],
@@ -25,6 +28,14 @@ grails.project.dependency.resolution = {
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
+        mavenRepo(config.artifactory.repo){
+            auth([
+                username: config.artifactory.username,
+                password: config.artifactory.password
+            ])
+            updatePolicy "always"
+        }
+
         grailsCentral()
         mavenLocal()
         mavenCentral()
@@ -39,13 +50,28 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.27'
 
         //Swagger annotations
-        runtime 'com.ctacorp:grails_swagger_annotations:0.7'
+        compile 'com.ctacorp:grails-swagger-annotations:0.8.6'
+        compile 'markdown4j:markdown4j:2.2'
     }
 
     plugins {
+        runtime ":resources:1.2.7"
+
         build(":release:3.0.1",
               ":rest-client-builder:1.0.3") {
             export = false
         }
     }
 }
+
+
+//_____________________
+// Release plugin info \_________________________________________________________________
+//
+// | to release, just run 'grails maven-deploy'
+// | to install locally, run 'grails maven-install'
+//_______________________________________________________________________________________
+grails.project.repos.default = "myRepo"
+grails.project.repos.myRepo.url = config.artifactory.repositoryLocation
+grails.project.repos.myRepo.username = config.artifactory.username
+grails.project.repos.myRepo.password = config.artifactory.password

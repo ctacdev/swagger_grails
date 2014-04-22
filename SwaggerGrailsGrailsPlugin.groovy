@@ -11,7 +11,7 @@ class SwaggerGrailsGrailsPlugin {
     // TODO Fill in these fields
     def title = "Swagger Grails Plugin" // Headline display name of the plugin
     def author = "Steffen Gates"
-    def authorEmail = "steffengates@gmail.com"
+    def authorEmail = "sgates@ctacorp.com"
     def description = '''\
 Swagger integration for grails without the need for JAX-RS.
 '''
