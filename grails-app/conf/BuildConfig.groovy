@@ -28,11 +28,7 @@ grails.project.dependency.resolution = {
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
-        mavenRepo(config.artifactory.repo){
-            auth([
-                username: config.artifactory.username,
-                password: config.artifactory.password
-            ])
+        mavenRepo("http://ctacdev.com:8080/artifactory/central"){
             updatePolicy "always"
         }
 
@@ -63,7 +59,6 @@ grails.project.dependency.resolution = {
         }
     }
 }
-
 
 //_____________________
 // Release plugin info \_________________________________________________________________
