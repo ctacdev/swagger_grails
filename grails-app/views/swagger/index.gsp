@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Swagger UI</title>
-    <r:require module="swaggerUI"/>
-    <r:layoutResources />
+    <asset:stylesheet src="swaggerStyles.css"/>
+    <asset:javascript src="swaggerLibs.js"/>
     <script type="text/javascript">
         $(function () {
             window.swaggerUi = new SwaggerUi({
@@ -46,17 +46,22 @@
 </head>
 
 <body>
+
+%{--Testing out assets here //////////////////////////////////////////////////////////////////////////////////////////// --}%
+<script>
+    hello();
+</script>
 <div id='header'>
     <div class="swagger-ui-wrap">
         <a id="logo" href="http://swagger.wordnik.com">swagger</a>
 
         <form id='api_selector'>
             <div class='input icon-btn'>
-                <r:img id="show-pet-store-icon" dir="images/swagger/pet_store_api.png" title="Show Swagger Petstore Example Apis"/>
+                <asset:image src="pet_store_api.png" alt="Show Swagger Petstore Example Apis" id="show-pet-store-icon"/>
             </div>
 
             <div class='input icon-btn'>
-                <r:img id="show-wordnik-dev-icon" dir="images/swagger/wordnik_api.png" title="Show Wordnik Developer Apis"/>
+                <asset:image src="wordnik_api.png" alt="Show Wordnik Developer Apis" id="show-wordnik-dev-icon"/>
             </div>
 
             <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
@@ -71,6 +76,5 @@
 <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 
 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
-<r:layoutResources />
 </body>
 </html>
