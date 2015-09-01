@@ -62,8 +62,9 @@ grails.project.dependency.resolution = {
 
 //_____________________
 // Release plugin info \_________________________________________________________________
-//
-// | to release, just run 'grails publish-plugin'
+// |
+// | to push a snapshot, run 'grails publish-plugin'
+// | to release, run 'grails publish-plugin --repository=plugin-release'
 // | to install locally, run 'grails maven-install'
 //_______________________________________________________________________________________
 grails.project.repos.default = "plugin_snap"
