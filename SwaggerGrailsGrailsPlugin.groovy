@@ -1,6 +1,6 @@
 class SwaggerGrailsGrailsPlugin {
     // the plugin version
-    def version = "0.4.0_SNAPSHOT"
+    def version = "0.4.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.3 > *"
     // resources that are excluded from plugin packaging
