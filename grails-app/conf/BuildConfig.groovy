@@ -63,7 +63,7 @@ grails.project.dependency.resolution = {
 //_____________________
 // Release plugin info \_________________________________________________________________
 //
-// | to release, just run 'grails maven-deploy'
+// | to release, just run 'grails publish-plugin'
 // | to install locally, run 'grails maven-install'
 //_______________________________________________________________________________________
 grails.project.repos.default = "myRepo"
