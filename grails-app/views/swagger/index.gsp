@@ -46,11 +46,6 @@
 </head>
 
 <body>
-
-%{--Testing out assets here //////////////////////////////////////////////////////////////////////////////////////////// --}%
-<script>
-    hello();
-</script>
 <div id='header'>
     <div class="swagger-ui-wrap">
         <a id="logo" href="http://swagger.wordnik.com">swagger</a>

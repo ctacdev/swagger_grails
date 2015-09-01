@@ -3,7 +3,7 @@ grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 
 def home = System.getProperty('user.home')
-def config = new ConfigSlurper(grailsSettings.grailsEnv).parse(new File("$home/syndBuildConfig.groovy").toURI().toURL())
+def config = new ConfigSlurper(grailsSettings.grailsEnv).parse(new File("$home/syndicationSharedBuildConfig.groovy").toURI().toURL())
 
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
@@ -67,6 +67,6 @@ grails.project.dependency.resolution = {
 // | to install locally, run 'grails maven-install'
 //_______________________________________________________________________________________
 grails.project.repos.default = "myRepo"
-grails.project.repos.myRepo.url = config.artifactory.repositoryLocation
+grails.project.repos.myRepo.url = config.artifactory.deploymentAddress
 grails.project.repos.myRepo.username = config.artifactory.username
 grails.project.repos.myRepo.password = config.artifactory.password
