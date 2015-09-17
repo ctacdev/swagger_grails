@@ -10,13 +10,21 @@ class SwaggerController {
         render view:grailsApplication.config.swagger.customView ?: "index"
     }
 
-    def api(String path){
-        render swaggerService.api as JSON
+    def api(){
+        String resp = swaggerService.api as JSON
+        if(params.callback) {
+            resp = params.callback + "(" + resp + ");"
+        }
+        render resp
     }
 
     def resource(String path){
         if(path){
-            render swaggerService.getResourceDetails("/${path}") as JSON
+            String resp = swaggerService.getResourceDetails("/${path}") as JSON
+            if(params.callback) {
+                resp = params.callback + "(" + resp + ");"
+            }
+            render resp
             return
         }
     }
